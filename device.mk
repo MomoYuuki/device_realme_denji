@@ -249,6 +249,16 @@ PRODUCT_PACKAGES += \
     android.hardware.usb.gadget@1.0.vendor \
     android.hardware.usb.gadget@1.1.vendor
 
+# Overlays
+PRODUCT_PACKAGES += \
+   DialerOverlayDenji	\
+   FrameworksResOverlayDenji \
+   SettingsOverlayDenji \
+   SettingsProviderDenji \
+   SystemUIOverlayDenji \
+   TelephonyOverlayDenji \
+   WifiResOverlayDenji
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
