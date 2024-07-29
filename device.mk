@@ -70,6 +70,12 @@ PRODUCT_PACKAGES += \
     audio.bluetooth.default \
     libbluetooth_audio_session
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1600
+TARGET_SCREEN_WIDTH := 720
+TARGET_BOOT_ANIMATION_RES := 720
+TARGET_BOOTANIMATION_HALF_RES := true
+
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.common@1.0.vendor \
@@ -101,8 +107,12 @@ PRODUCT_PACKAGES += \
 	
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm-service.clearkey \
-    android.hardware.drm@1.4.vendor
+    android.hardware.drm@1.0.vendor \
+    android.hardware.drm@1.1.vendor \
+    android.hardware.drm@1.2.vendor \
+    android.hardware.drm@1.3.vendor \
+    android.hardware.drm@1.4.vendor \
+    libmockdrmcryptoplugin
 
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -153,19 +163,25 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-impl.recovery \
-    android.hardware.health@2.1-service
+    android.hardware.health@2.1-service \
+    android.hardware.health@1.0 \
+    android.hardware.health@2.0
 
 # Lineage Health
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
     
+
 # HIDL
 PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.allocator@1.0 \
+    android.hidl.base@1.0.vendor \
+    android.hidl.allocator@1.0.vendor \
     libhidltransport \
     libhidltransport.vendor \
     libhwbinder \
-    libhwbinder.vendor \
-    libhidlmemory.vendor:64
+    libhwbinder.vendor
 
 # IMS
 PRODUCT_BOOT_JARS += \
@@ -292,7 +308,10 @@ PRODUCT_PACKAGES += \
     vendor.mediatek.hardware.mtkpower@1.2.vendor \
     vendor.mediatek.hardware.mtkpower@1.2-service.stub
 
+# Power
 PRODUCT_PACKAGES += \
+    android.hardware.power-service-mediatek:32 \
+    android.hardware.power-V1-ndk.vendor \
     android.hardware.power@1.0.vendor \
     android.hardware.power@1.1.vendor \
     android.hardware.power@1.2.vendor \
@@ -380,7 +399,6 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
     hardware/google/pixel \
-    hardware/lineage/interfaces/power-libperfmgr \
     hardware/mediatek \
     hardware/oplus
 
