@@ -108,9 +108,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION := false
 
-# Dtb
+# Prebuilts - Kernel
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/dtb:dtb.img
+    $(LOCAL_PATH)-kernel/dtb.img:dtb.img \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)-kernel/modules,$(TARGET_COPY_OUT_VENDOR)/lib/modules)
 
 # Display
 PRODUCT_PACKAGES += \
